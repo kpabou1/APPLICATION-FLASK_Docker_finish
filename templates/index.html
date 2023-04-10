@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mon site Flask</title>
+</head>
+<body>
+	<h1>Page d'accueil</h1>
+	<nav>
+		<ul>
+			<li><a href="{{ url_for('index') }}">Accueil</a></li>
+			<li><a href="{{ url_for('users') }}">Utilisateurs</a></li>
+			<li><a href="{{ url_for('roles') }}">Rôles</a></li>
+			<li><a href="{{ url_for('show_products') }}">Produits</a></li>
+		</ul>
+	</nav>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class="flashes">
+			{% for message in messages %}
+				<li>{{ message }}</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+	{% block content %}
+	{% endblock %}
+</body>
+</html>

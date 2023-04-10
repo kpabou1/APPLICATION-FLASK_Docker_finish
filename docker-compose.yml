@@ -1,0 +1,20 @@
+version: "3"
+services:
+  appli:
+    build: 
+        context: .
+        dockerfile: Dockerfile
+
+    ports:
+      - "5000:5000"
+
+    restart: unless-stopped
+    tty: true
+  
+    volumes:
+      - /home/isidore/Documents/UE_Libre_Flask/projet3/APPLICATION-FLASK/:/dataFlask/    
+       
+volumes:
+  flask_data:
+    driver: local
+
